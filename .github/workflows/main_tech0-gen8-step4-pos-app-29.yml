@@ -40,7 +40,7 @@ jobs:
           cp -r ./.next/static/. ./deploy/.next/static
           
       - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+        run: zip release.zip ./deploy -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -70,5 +70,5 @@ jobs:
         with:
           app-name: 'tech0-gen8-step4-pos-app-29'
           slot-name: 'Production'
-          package: .
+          package: ./deploy
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DF13BF3B83C74FCFAB0BE32F8FEE1CD4 }}
