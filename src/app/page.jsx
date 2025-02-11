@@ -17,8 +17,7 @@ export default function PurchaseForm() {
       return;
     }
     try {
-      // const res = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/search?code=${code}`);
-      const res = await fetch(`${NEXT_PUBLIC_API_ENDPOINT}/search?code=${code}`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/search?code=${code}`);
       if (!res.ok) {
         throw new Error('サーバーエラーが発生しました');
       }
@@ -57,8 +56,7 @@ export default function PurchaseForm() {
   };
 
   const handlePurchase = async () => {
-    // const res = await fetch(process.env.NEXT_PUBLIC_API_ENDPOINT + '/purchases', {
-    const res = await fetch(NEXT_PUBLIC_API_ENDPOINT + '/purchases', {
+    const res = await fetch(process.env.NEXT_PUBLIC_API_ENDPOINT + '/purchases', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -77,8 +75,7 @@ export default function PurchaseForm() {
       trd_id
     }));
 
-    // const response = await fetch(process.env.NEXT_PUBLIC_API_ENDPOINT + '/purchase_details', {
-    const response = await fetch(NEXT_PUBLIC_API_ENDPOINT + '/purchase_details', {
+    const response = await fetch(process.env.NEXT_PUBLIC_API_ENDPOINT + '/purchase_details', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -92,8 +89,7 @@ export default function PurchaseForm() {
       total_amt += Math.floor(Number(item.prd_price));
   });
 
-    // const total = await fetch(process.env.NEXT_PUBLIC_API_ENDPOINT + '/purchases', {
-    const total = await fetch(NEXT_PUBLIC_API_ENDPOINT + '/purchases', {
+    const total = await fetch(process.env.NEXT_PUBLIC_API_ENDPOINT + '/purchases', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
