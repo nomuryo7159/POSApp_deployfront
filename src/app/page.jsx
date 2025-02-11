@@ -34,6 +34,7 @@ export default function PurchaseForm() {
       setErrorMessage(""); // エラーメッセージをクリア
       } catch (error) {
       setErrorMessage(error.message);
+      setPrice(null); // 商品が未登録の場合は価格をリセット
     }
   };
 
